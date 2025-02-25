@@ -41,9 +41,9 @@
 
 ## **Protótipos de Tela**
 
-- **Tela de Login**
-![Tela de Registro](https://imgur.com/a/86lrwia)
+- ## **Tela de Login**
+![Image](https://github.com/user-attachments/assets/49c1ecb1-e92a-401f-8bfc-d3f65eaabc1b)
 
-- **Tela de Registro**
-![Tela de Login](https://imgur.com/a/tvHDedk)
+- ## **Tela de Registro**
+![Tela de registro](https://github.com/user-attachments/assets/9102a0e2-2ba9-4d5b-a937-d8e9fafee0b9)
 
