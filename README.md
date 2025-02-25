@@ -42,8 +42,8 @@
 ## **Protótipos de Tela**
 
 - **Tela de Login**
-![Tela de Registro](https://github.com/guilhxrme05/SA_3FASE/blob/main/public/sprint/tela_cadastro.png)
+![Tela de Registro](https://imgur.com/a/86lrwia)
 
 - **Tela de Registro**
-![Tela de Login](https://github.com/guilhxrme05/SA_3FASE/blob/main/public/sprint/tela_login.png)
+![Tela de Login](https://imgur.com/a/tvHDedk)
 
