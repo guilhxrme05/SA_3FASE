@@ -42,8 +42,16 @@
 ## **Protótipos de Tela**
 
 - ## **Tela de Login**
-![Image](https://github.com/user-attachments/assets/49c1ecb1-e92a-401f-8bfc-d3f65eaabc1b)
+![Tela de login](https://github.com/user-attachments/assets/b27e92d0-5d09-4fea-b42e-85fdb8d43d4a)
 
 - ## **Tela de Registro**
-![Tela de registro](https://github.com/user-attachments/assets/9102a0e2-2ba9-4d5b-a937-d8e9fafee0b9)
+![Tela de registro](https://github.com/user-attachments/assets/b0433546-396b-44b6-921c-82ec6d0e1931)
 
+- ## **Tela de Cadastro de Serviço**
+![Tela de cadastro de serviço](https://github.com/user-attachments/assets/ec8fb1c9-6d43-4ba6-bf57-b181289961ec)
+
+- ## **Tela de Exibição de Serviço**
+![Tela de exibição de serviço](https://github.com/user-attachments/assets/e0a71fa7-e2c7-4348-b92f-9d7c660250fa)
+
+- ## **Landing Page**
+![Landing page](https://github.com/user-attachments/assets/3e455565-5db9-4732-a764-f74baf2c4bd0)
