@@ -47,7 +47,7 @@
 - ## **Tela de Registro**
 ![Tela de registro](https://github.com/user-attachments/assets/b0433546-396b-44b6-921c-82ec6d0e1931)
 
-- ## **Tela de Cadastro de Serviço**
+- ## **Tela de Avaliação de Serviço**
 ![Tela de cadastro de serviço](https://github.com/user-attachments/assets/ec8fb1c9-6d43-4ba6-bf57-b181289961ec)
 
 - ## **Tela de Exibição de Serviço**
@@ -55,3 +55,13 @@
 
 - ## **Landing Page**
 ![Landing page](https://github.com/user-attachments/assets/3e455565-5db9-4732-a764-f74baf2c4bd0)
+
+- ## **Tela de Cadastro de Serviço**
+![Image](https://github.com/user-attachments/assets/95f9ccc4-906b-475f-b03e-fd7e16f19701)
+
+- ## **Tela de Página de Perfil**
+![Image](https://github.com/user-attachments/assets/dd1a1101-8ee4-4ac0-b64b-979e55d742be)
+
+
+
+
