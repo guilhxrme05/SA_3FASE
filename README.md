@@ -30,11 +30,11 @@
 - **RF 007**: Visualização, edição e remoção de avaliações anteriores pelo usuário.
 
 ### Thomaz: Filtros, Pesquisa e Exibição
-- **RF 010**: Filtro de serviços por categoria.
-- **RF 011**: Ordenação de serviços por preço (crescente e decrescente).
-- **RF 012**: Pesquisa por nome do serviço.
-- **RF 013**: Exibição da média das estrelas e comentários nas avaliações.
-- **RF 014**: Listagem de avaliações da mais recente para a mais antiga.
+- **RF 008**: Filtro de serviços por categoria.
+- **RF 009**: Ordenação de serviços por preço (crescente e decrescente).
+- **RF 010**: Pesquisa por nome do serviço.
+- **RF 011**: Exibição da média das estrelas e comentários nas avaliações.
+- **RF 012**: Listagem de avaliações da mais recente para a mais antiga.
 
 ---
 
