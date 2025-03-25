@@ -41,25 +41,25 @@
 ## **Protótipos de Tela**
 
 - ## **Tela de Login**
-![Tela de login](https://github.com/user-attachments/assets/b27e92d0-5d09-4fea-b42e-85fdb8d43d4a)
+![Tela de login](https://github.com/user-attachments/assets/7d5e7ee8-8c40-48e7-9968-821e7aa88046)
 
 - ## **Tela de Registro**
-![Tela de registro](https://github.com/user-attachments/assets/b0433546-396b-44b6-921c-82ec6d0e1931)
+![Tela de registro](https://github.com/user-attachments/assets/b1557c1d-c6cb-4be0-b562-bc3ba2038877)
 
-- ## **Tela de Avaliação de Serviço**
-![Tela de cadastro de serviço](https://github.com/user-attachments/assets/ec8fb1c9-6d43-4ba6-bf57-b181289961ec)
+- ## **Tela de Gerenciamento de serviços**
+![Gerenciamento de serviços](https://github.com/user-attachments/assets/ed931499-c8cd-4ec8-8582-b8e34d10a041)
 
 - ## **Tela de Exibição de Serviço**
-![Tela de exibição de serviço](https://github.com/user-attachments/assets/e0a71fa7-e2c7-4348-b92f-9d7c660250fa)
+![Página inicial](https://github.com/user-attachments/assets/5b7a6523-ccd4-4991-b824-1631b893524b)
 
 - ## **Landing Page**
-![Landing page](https://github.com/user-attachments/assets/3e455565-5db9-4732-a764-f74baf2c4bd0)
+![Landing page](https://github.com/user-attachments/assets/df8e38ff-2966-4655-93ae-55bd4bf01b88)
 
-- ## **Tela de Cadastro de Serviço**
-![Image](https://github.com/user-attachments/assets/95f9ccc4-906b-475f-b03e-fd7e16f19701)
+- ## **Tela de Exibição e Avaliação**
+![Image](https://github.com/user-attachments/assets/2c24bcf0-4127-4c00-b032-215479210263)
 
 - ## **Tela de Página de Perfil**
-![Image](https://github.com/user-attachments/assets/dd1a1101-8ee4-4ac0-b64b-979e55d742be)
+![Image](https://github.com/user-attachments/assets/20f1d882-ae54-4b12-b9c0-c7760b524d0f)
 
 
 
