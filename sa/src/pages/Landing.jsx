@@ -14,7 +14,7 @@ const HomePage = () => {
           Explore análises detalhadas, compare funcionalidades e descubra opiniões reais de usuários sobre diversas plataformas digitais.
         </p>
         <Link to="/login">
-        <button className="start-button">COMECE AQUI</button>
+        <button className="start-button">Comece aqui</button>
         </Link>
       </main>
       <footer className="footer">

@@ -71,22 +71,51 @@
     opacity: 0.9;
   }
   
-  /* Botão */
+
   .start-button {
-    padding: 12px 30px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    background-color: transparent;
-    border: 2px solid #fff;
-    border-radius: 25px;
+    width: 130px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    color: white;
+    font-weight: 600;
+    gap: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+
+  }
+
+  .start-button::before {
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    content: "";
+    background-color: white;
+    border-radius: 50%;
+    left: -100%;
+    top: 0;
+    transition-duration: .3s;
+    mix-blend-mode: difference;
   }
   
-  .start-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  .start-button:hover::before {
+    transition-duration: .3s;
+    transform: translate(100%,-50%);
+    border-radius: 0;
   }
+  
+  .start-button:active {
+    transform: translate(5px,5px);
+    transition-duration: .3s;
+  }
+
+  
   
   /* Footer com plataformas */
   .footer {
