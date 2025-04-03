@@ -1,4 +1,4 @@
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,18 +9,18 @@
     font-family: Arial, sans-serif;
   }
   
-  /* Container principal */
+
   .homepage-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #1a1a1a; /* Fundo escuro */
+    background-color: #1a1a1a; 
     color: #fff;
     position: relative;
     overflow: hidden;
   }
   
-  /* Estilização do fundo com ondas (efeito visual) */
+
   .homepage-container::before {
     content: '';
     position: absolute;
@@ -33,7 +33,7 @@
     z-index: 0;
   }
   
-  /* Header */
+
   .header {
     padding: 20px;
     z-index: 1;
@@ -112,7 +112,7 @@
     opacity: 1;
   }
   
-  /* Responsividade */
+  /* Responsividade 
   @media (max-width: 768px) {
     .title {
       font-size: 32px;
@@ -127,3 +127,5 @@
       font-size: 14px;
     }
   }
+
+  */

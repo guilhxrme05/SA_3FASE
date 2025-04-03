@@ -1,0 +1,88 @@
+.pagina-review-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .pagina-review {
+    width: 100%;
+    max-width: 900px;
+    background-color: #1a1a1a;
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-sizing: border-box;
+    margin-top: -50px; /* Move the content slightly upwards */
+  }
+  
+  .header-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+  
+  .logo-placeholder {
+    width: 200px; /* Increased size */
+    height: 200px;
+    background-color: #ccc;
+    margin-right: 30px; /* Increased space between logo and text */
+  }
+  
+  .info-right {
+    flex: 1;
+  }
+  
+  .info-right h1 {
+    font-size: 48px; /* Increased font size */
+    margin-bottom: 20px;
+  }
+  
+  .info-right .description {
+    font-size: 24px; /* Increased font size */
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .info-right .rating,
+  .info-right .reviews {
+    font-size: 20px; /* Increased font size */
+    margin: 5px 0;
+  }
+  
+  .info-right strong {
+    color: #ccc;
+  }
+  
+  .info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased space between cards */
+  }
+  
+  .info-card {
+    background-color: #222;
+    padding: 20px; /* Increased padding */
+    border-radius: 5px;
+  }
+  
+  .info-card p {
+    margin: 0;
+    font-size: 20px; /* Increased font size */
+  }
+  
+  .info-card strong {
+    color: #ccc;
+  }
+  
+  .info-card a {
+    color: #1e90ff;
+    text-decoration: none;
+  }
+  
+  .info-card a:hover {
+    text-decoration: underline;
+  }
