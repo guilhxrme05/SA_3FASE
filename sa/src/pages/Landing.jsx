@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './Landing.css';
 
 const HomePage = () => {
@@ -12,7 +13,9 @@ const HomePage = () => {
         <p className="subtitle">
           Explore análises detalhadas, compare funcionalidades e descubra opiniões reais de usuários sobre diversas plataformas digitais.
         </p>
+        <Link to="/login">
         <button className="start-button">COMECE AQUI</button>
+        </Link>
       </main>
       <footer className="footer">
         <div className="platforms">

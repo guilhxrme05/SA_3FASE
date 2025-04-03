@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './Login.css';
 
 const LoginPage = () => {
@@ -39,10 +40,12 @@ const LoginPage = () => {
             Sign in
           </button>
         </form>
+        <Link to="/registro">
         <p className="register-link">
           Ainda não tem conta?{' '}
           
         </p>
+        </Link>
       </main>
     </div>
   );
