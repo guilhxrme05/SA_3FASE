@@ -9,7 +9,7 @@ const LoginPage = () => {
         <h1 className="logo">Avalia+</h1>
       </header>
       <main className="login-content">
-        <h2 className="title">Faça login em sua conta</h2>
+        <h2 className="title-login">Faça login em sua conta</h2>
         <form className="login-form">
           <div className="form-group">
             <label htmlFor="name">Nome</label>
