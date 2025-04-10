@@ -1,12 +1,15 @@
 import React from 'react';
 import './Login.css';
+import { Link } from 'react-router-dom'
 
 const LoginPage = () => {
   return (
     <div className="login-container">
+      <Link to="/">
       <header className="header">
         <h1 className="logo">Avalia+</h1>
       </header>
+      </Link>
       <main className="login-content">
         <h2 className="title">Crie sua conta</h2>
         <form className="login-form">
@@ -53,10 +56,12 @@ const LoginPage = () => {
             Sign in
           </button>
         </form>
+        <Link to="/login">
         <p className="register-link">
           Já possui conta?{' '}
           
         </p>
+        </Link>
       </main>
     </div>
   );

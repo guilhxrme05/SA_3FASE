@@ -5,9 +5,11 @@ import './Login.css';
 const LoginPage = () => {
   return (
     <div className="login-container">
+      <Link to="/">
       <header className="header">
         <h1 className="logo">Avalia+</h1>
       </header>
+      </Link>
       <main className="login-content">
         <h2 className="title">Faça login em sua conta</h2>
         <form className="login-form">
