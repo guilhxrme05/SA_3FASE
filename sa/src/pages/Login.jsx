@@ -11,7 +11,7 @@ const LoginPage = () => {
       </header>
       </Link>
       <main className="login-content">
-        <h2 className="title">Faça login em sua conta</h2>
+        <h2 className="title-login">Faça login em sua conta</h2>
         <form className="login-form">
           <div className="form-group">
             <label htmlFor="name">Nome</label>
@@ -32,8 +32,9 @@ const LoginPage = () => {
             />
           </div>
           <div className="form-options">
-            <label className="remember-me">
-              <input type="checkbox" />
+            <label className="custom-checkbox">
+              <input name="dummy" type="checkbox" />
+              <span class="checkmark"></span>
               Lembre de mim
             </label>
 

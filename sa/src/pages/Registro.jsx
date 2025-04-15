@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.css';
+import './Registro.css';
 import { Link } from 'react-router-dom'
 
 const LoginPage = () => {
@@ -46,8 +46,9 @@ const LoginPage = () => {
 
 
           <div className="form-options">
-            <label className="remember-me">
-              <input type="checkbox" />
+            <label className="custom-checkbox">
+              <input name="dummy" type="checkbox" />
+              <span class="checkmark"></span>
               Lembre de mim
             </label>
 
