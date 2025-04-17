@@ -48,15 +48,19 @@ HEAD
   }
   
 
-.homepage-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #1a1a1a; 
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
+  .homepage-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    background-image: url('/background/backimg3.jpg'); /* <<<<img de fundo */
+    background-size: cover;
+    background-position: center;
+  }
+  
 
 
 
@@ -101,7 +105,6 @@ HEAD
   margin-bottom: 20px;
   line-height: 1.2;
   max-width: 90%; 
-  
 }
 
 .subtitle-landing {
@@ -178,16 +181,16 @@ transition-duration: .3s;
   gap: 30px;
   font-size: 16px;
   font-weight: bold;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .platforms span {
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: opacity 0s ease;
 }
 
 .platforms span:hover {
-  opacity: 1;
+  opacity: 10;
 }
 
 

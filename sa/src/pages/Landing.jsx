@@ -13,9 +13,13 @@ const HomePage = () => {
         <p className="subtitle-landing">
           Explore análises detalhadas, compare funcionalidades e descubra opiniões reais de usuários sobre diversas plataformas digitais.
         </p>
+
         <Link to="/login">
         <button className="start-button">Comece aqui</button>
         </Link>
+
+        
+
       </main>
       <footer className="footer">
         <div className="platforms">

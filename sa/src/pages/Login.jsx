@@ -14,7 +14,7 @@ const LoginPage = () => {
         <h2 className="title-login">Faça login em sua conta</h2>
         <form className="login-form">
           <div className="form-group">
-            <label htmlFor="name">Nome</label>
+            <label htmlFor="name">Nome </label>
             <input
               type="text"
               id="name"
@@ -23,7 +23,7 @@ const LoginPage = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Senha</label>
+            <label htmlFor="password">Senha </label>
             <input
               type="password"
               id="password"
@@ -40,7 +40,7 @@ const LoginPage = () => {
 
           </div>
           <button type="submit" className="login-button">
-            Sign in
+           sign in
           </button>
         </form>
         <Link to="/registro">
