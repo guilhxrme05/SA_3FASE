@@ -20,7 +20,7 @@ HEAD
     font-weight: bold;
   }
   
-  /* Conteúdo principal */
+ 
   .main-content {
     flex: 1;
     display: flex;
@@ -87,7 +87,6 @@ HEAD
   font-weight: bold;
 }
 
-/* Conteúdo principal */
 .main-content {
   flex: 1;
   display: flex;
@@ -116,13 +115,12 @@ HEAD
 }
 
 
-/* Remove sublinhado e cor padrão de links */
+
 a {
 text-decoration: none;
 color: inherit;
 }
 
-/* Botão estilizado */
 .start-button {
 width: 180px;
 height: 55px;
@@ -142,7 +140,6 @@ overflow: hidden;
 transition-duration: .3s;
 }
 
-/* Efeito visual do hover */
 .start-button::before {
 width: 180px;
 height: 180px;
@@ -169,7 +166,6 @@ transition-duration: .3s;
 
 
 
-/* Footer com plataformas */
 .footer {
   padding: 20px;
   z-index: 1;
