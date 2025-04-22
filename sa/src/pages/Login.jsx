@@ -27,7 +27,7 @@ const LoginPage = () => {
     <div className="login-container">
       <Link to="/">
         <header className="header">
-          <h1 className="logo">Avalia+</h1>
+          <h1 className=               "logo">Avalia+</h1>
         </header>
       </Link>
       <main className="login-content">
