@@ -138,6 +138,7 @@ box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
 position: relative;
 overflow: hidden;
 transition-duration: .3s;
+
 }
 
 .start-button::before {
@@ -268,6 +269,14 @@ transition-duration: .3s;
   background-color: #ff0000;
 }
 
+.hbo {
+  background-color: rgb(0, 35, 231);
+}
+
+.aliexpress{
+  background-color: #e03400;
+}
+
 .Btn:hover {
   width: 110px;
   transition-duration: 0.4s;
@@ -295,8 +304,12 @@ transition-duration: .3s;
 
 .svgIcon {
   transition-duration: 0.3s;
+  
 }
 
 .svgIcon path {
   fill: white;
 }
+
+
+

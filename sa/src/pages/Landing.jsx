@@ -56,6 +56,38 @@ const HomePage = () => {
   </svg>
     <span class="text">Netflix</span>
   </button>
+
+  <button className="Btn hbo">
+  <svg
+    className="svgIcon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 40 40"
+    height="2.5em"
+    fill="currentColor"
+  >
+    <g id="HBO">
+      <path d="M13,12.07V25.85H9.2V20.77H6.79v5.08H3V12.07H6.79v5.24H9.2V12.07Zm17,4.11A2.82,2.82,0,1,0,32.81,19,2.82,2.82,0,0,0,30,16.18ZM30,12a7,7,0,0,0-6.41,4.17,3.83,3.83,0,0,0-1.08-3,4.63,4.63,0,0,0-3.37-1H13.8V25.88h5.33A4,4,0,0,0,22.18,25a4.38,4.38,0,0,0,1.28-3.46v0A7,7,0,1,0,30,12ZM19.66,22.36a1.24,1.24,0,0,1-.82.29H17.15v-2.1h1.69A1,1,0,0,1,20,21.62.94.94,0,0,1,19.66,22.36Zm0-5.07a1.16,1.16,0,0,1-.82.31h-1.7V15.42h1.67a1.36,1.36,0,0,1,.92.24,1.13,1.13,0,0,1,.27.86A1,1,0,0,1,19.67,17.29Zm1.94,1.63c.29-.18,1-.44,1.42-.72A7,7,0,0,0,23,19a5.33,5.33,0,0,0,.08,1A9,9,0,0,0,21.61,18.92ZM30,22.46A3.46,3.46,0,1,1,33.45,19,3.46,3.46,0,0,1,30,22.46Z"/>
+      </g>
+  </svg>
+    <span className="text">HBO Max</span>
+  </button>
+
+    <button className="Btn aliexpress">
+    <svg 
+    className="svgIcon"
+    xmlns="http://www.w3.org/2000/svg" 
+    width={35} 
+    height={35} 
+    viewBox="0 0 48 48">
+      <path fill="none" stroke="currenteColor" strokeLinecap="round" strokeLinejoin="round" d="M39.716 8.269a2.77 2.77 0 0 0-2.72-2.77h-26a2.77 2.77 0 0 0-2.73 2.77h0" strokeWidth={1}></path>
+      <circle cx={13.126} cy={22.109} r={1.94} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1}></circle><circle cx={34.855} cy={22.109} r={1.94} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1}></circle><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M13.296 23.999c1.072 5.907 6.73 9.825 12.637 8.752A10.87 10.87 0 0 0 34.685 24" strokeWidth={1}></path><rect width={37} height={34.206} x={5.5} y={8.294} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" rx={4} ry={4} strokeWidth={1}></rect>
+      </svg>
+
+      <span className='text'>Aliexpress</span>
+
+    </button>
+
+
 </div>
 
     </div>
