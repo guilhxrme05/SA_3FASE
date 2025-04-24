@@ -1,10 +1,15 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [registeredUsers, setRegisteredUsers] = useState([]);
+
+  useEffect( () =>
+    console.log(registeredUsers)
+
+  , [registeredUsers])
 
   const login = (userData) => {
     const foundUser = registeredUsers.find(

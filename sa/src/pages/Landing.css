@@ -215,6 +215,8 @@ transition-duration: .3s;
 .container {
   display: flex;
   justify-content: center;
+  gap: 3px;
+  height: 60px;
 }
 
 .Btn {
