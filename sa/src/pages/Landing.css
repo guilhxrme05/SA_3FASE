@@ -268,15 +268,15 @@ transition-duration: .3s;
 }
 
 .netflix {
-  background-color: #ff0000;
+  background-color: rgb(238, 37, 23);
 }
 
 .hbo {
-  background-color: rgb(0, 35, 231);
+  background-color: rgb(27, 36, 47);
 }
 
 .aliexpress{
-  background-color: #e03400;
+  background-color: rgb(130, 11, 210);
 }
 
 .Btn:hover {
@@ -306,12 +306,9 @@ transition-duration: .3s;
 
 .svgIcon {
   transition-duration: 0.3s;
-  
 }
 
 .svgIcon path {
   fill: white;
 }
-
-
 

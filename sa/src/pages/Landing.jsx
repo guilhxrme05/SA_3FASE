@@ -73,17 +73,11 @@ const HomePage = () => {
   </button>
 
     <button className="Btn aliexpress">
-    <svg 
-    className="svgIcon"
-    xmlns="http://www.w3.org/2000/svg" 
-    width={35} 
-    height={35} 
-    viewBox="0 0 48 48">
-      <path fill="none" stroke="currenteColor" strokeLinecap="round" strokeLinejoin="round" d="M39.716 8.269a2.77 2.77 0 0 0-2.72-2.77h-26a2.77 2.77 0 0 0-2.73 2.77h0" strokeWidth={1}></path>
-      <circle cx={13.126} cy={22.109} r={1.94} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1}></circle><circle cx={34.855} cy={22.109} r={1.94} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1}></circle><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M13.296 23.999c1.072 5.907 6.73 9.825 12.637 8.752A10.87 10.87 0 0 0 34.685 24" strokeWidth={1}></path><rect width={37} height={34.206} x={5.5} y={8.294} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" rx={4} ry={4} strokeWidth={1}></rect>
-      </svg>
+    <svg className='svgIcon
+    
+    ' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M7.28 5.434a4 4 0 0 0-2.944 1.252h-.002q-.08-.003-.162-.002A4.19 4.19 0 0 0 .473 8.94c-.308.6-.423 1.244-.459 1.9c-.032.589 0 1.186 0 1.77v5.652h3.17s.002-2.784 0-5.178c-.001-1.611-.012-3.047 0-3.342c.056-1.394.437-2.305 1.148-3.05c2.359.001 3.886 1.608 3.97 4.167c.02.588.026 3.73.026 3.73v3.673h3.168v-4.965c0-1.5.013-2.8-.092-3.695c-.292-2.5-1.82-4.168-4.124-4.168m8.39.3l-3.166.004v4.965c0 1.501-.013 2.8.092 3.695c.292 2.5 1.82 4.168 4.124 4.168a4 4 0 0 0 2.944-1.252h.002q.081.003.164.002c1.543 0 2.99-.883 3.697-2.255c.309-.6.423-1.245.459-1.9c.032-.59 0-1.187 0-1.77V5.738h-3.17s-.002 2.784 0 5.178c.002 1.611.012 3.047 0 3.342c-.056 1.393-.437 2.305-1.148 3.05c-2.359-.001-3.886-1.609-3.97-4.167a156 156 0 0 1-.028-3.733Z"/></svg>
 
-      <span className='text'>Aliexpress</span>
+      <span className='text'>NUbank</span>
 
     </button>
 
