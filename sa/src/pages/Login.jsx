@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../AuthContext';
+import { AuthContext } from "../AuthContext";
 import './Login.css';
 
 const LoginPage = () => {
   const { login } = useContext(AuthContext);
-  const [formData, setFormData] = useState({ name: '', password: '' });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -13,13 +13,11 @@ const LoginPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    
-    const success = login(formData);
+    const success = await login(formData);
     if (success) {
-      navigate('/'); 
+      navigate('/');
     }
   };
 
@@ -27,21 +25,21 @@ const LoginPage = () => {
     <div className="login-container">
       <Link to="/">
         <header className="header">
-          <h1 className=               "logo">Avalia+</h1>
+          <h1 className="logo">Avalia+</h1>
         </header>
       </Link>
       <main className="login-content">
         <h2 className="title-login">Faça login em sua conta</h2>
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Nome</label>
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Digite seu nome"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Digite seu email"
               className="form-input"
-              value={formData.name}
+              value={formData.email}
               onChange={handleChange}
             />
           </div>

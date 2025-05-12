@@ -13,22 +13,24 @@ const RegistroPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validação simples antes de registrar
     if (!formData.name || !formData.email || !formData.password) {
       alert('Por favor, preencha todos os campos!');
       return;
     }
 
-    register(formData); // Simula o registro
-    navigate('/login'); // Redireciona para a tela de login
+    const success = await register(formData);
+    if (success) {
+      navigate('/');
+    }
   };
 
   return (
     <div className="login-container">
       <Link to="/">
+
         <header className="header">
           <h1 className="logo">Avalia+</h1>
         </header>
