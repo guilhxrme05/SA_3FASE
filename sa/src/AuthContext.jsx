@@ -6,10 +6,9 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  // Carregar usuário do localStorage ao iniciar
   useEffect(() => {
     try {
-      const token = localStorage.getItem('token'); // Corrigido: localStorage
+      const token = localStorage.getItem('token');
       const storedUser = localStorage.getItem('user');
       if (token && storedUser) {
         const parsedUser = JSON.parse(storedUser);
@@ -26,7 +25,6 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.post('http://localhost:5000/api/auth/login', userData);
       const { token, user } = response.data;
 
-      // Armazenar token e usuário
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -43,7 +41,6 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.post('http://localhost:5000/api/auth/register', userData);
       const { token, user } = response.data;
 
-      // Armazenar token e usuário
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -51,6 +48,32 @@ export const AuthProvider = ({ children }) => {
       return true;
     } catch (error) {
       alert(error.response?.data?.message || 'Erro ao registrar');
+      return false;
+    }
+  };
+
+  const updateProfile = async (userData) => {
+    try {
+      const response = await axios.put('http://localhost:5000/api/auth/profile', userData);
+      const { token, user } = response.data;
+
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(user));
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      setUser(user);
+      return true;
+    } catch (error) {
+      alert(error.response?.data?.message || 'Erro ao atualizar perfil');
+      return false;
+    }
+  };
+
+  const deleteAccount = async () => {
+    try {
+      await axios.delete('http://localhost:5000/api/auth/profile');
+      return true;
+    } catch (error) {
+      alert(error.response?.data?.message || 'Erro ao deletar conta');
       return false;
     }
   };
@@ -63,7 +86,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, register }}>
+    <AuthContext.Provider value={{ user, login, logout, register, updateProfile, deleteAccount }}>
       {children}
     </AuthContext.Provider>
   );

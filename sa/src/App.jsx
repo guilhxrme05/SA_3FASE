@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Registro from './pages/Registro';
 import PaginaReview from './pages/PaginaReview';
 import CadastroPlataforma from './pages/CadastroPlataforma';
+import Profile from './pages/CadastroPlataforma';
 
 function App() {
   

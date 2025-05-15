@@ -1,0 +1,124 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+  
+  .header {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .profile-content {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .profile-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #444;
+    margin: 0 auto;
+  }
+  
+  .edit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #ccc;
+  }
+  
+  .form-input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #fff;
+    outline: none;
+  }
+  
+  .form-input:disabled {
+    background-color: #1a1a1a;
+    color: #ccc;
+    border-color: #444;
+    cursor: not-allowed;
+  }
+  
+  .form-input:focus {
+    border-color: #007bff;
+  }
+  
+  .save-button {
+    padding: 12px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #252525; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .save-button:hover {
+    background-color: #252525; 
+  }
+  
+  .delete-button {
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #252525; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+  
+  .delete-button:hover {
+    background-color: #252525; 
+  }

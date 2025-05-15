@@ -4,6 +4,7 @@ import Registro from '../pages/Registro';
 import PaginaReview from '../pages/PaginaReview';
 import CadastroPlataforma from '../pages/CadastroPlataforma';
 import Landing from '../pages/Landing';
+import Profile from '../pages/Profile';
 
 const router = createBrowserRouter([
     { path: "/", element: <Landing /> },
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
     { path: "/paginareview", element: <PaginaReview /> },
     { path: "/cadastroplataforma", element: <CadastroPlataforma /> },
     { path: "/login", element: <Login /> },
+    { path: "/perfil", element: <Profile /> },
 ]);
 
 export default router;
