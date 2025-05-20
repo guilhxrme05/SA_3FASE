@@ -62,8 +62,6 @@ HEAD
   }
   
 
-
-
 .homepage-container::before {
   content: '';
   position: absolute;
@@ -138,7 +136,6 @@ box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
 position: relative;
 overflow: hidden;
 transition-duration: .3s;
-
 }
 
 .start-button::before {

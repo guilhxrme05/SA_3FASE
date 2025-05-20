@@ -55,8 +55,12 @@ const LoginPage = () => {
               onChange={handleChange}
             />
           </div>
+
           <button type="submit" className="login-button">Sign in</button>
+          
+
         </form>
+
         <Link to="/registro">
           <p className="register-link">Ainda não tem conta?</p>
         </Link>

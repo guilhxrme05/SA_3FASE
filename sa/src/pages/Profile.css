@@ -59,9 +59,12 @@
     gap: 15px;
   }
   
+
+  /*tem que adicionar o zóio na senha*/
   .form-group {
     display: flex;
     flex-direction: column;
+
   }
   
   .form-group label {
@@ -87,31 +90,47 @@
     cursor: not-allowed;
   }
   
+
   .form-input:focus {
     border-color: #007bff;
   }
   
+
   .save-button {
-    padding: 12px;
-    font-size: 1rem;
     color: #fff;
-    background-color: #252525; 
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #212121;
+  cursor: pointer;
+  border: 1px solid #212121;
+  transition: all 0.7s;
+  box-shadow:
+    6px 6px 12px #1f1f1f,
+    -6px -6px 12px #2f2f2f;
+  }
+  
+
+  .save-button:active {
+    color: #b1b1b1;
+    box-shadow:
+      0px 0px 0px #363636,
+      0px 0px 0px #2f2f2f,
+      inset 4px 4px 12px #474747,
+      inset -4px -4px 12px #1f1f1f;
   }
   
   .save-button:hover {
-    background-color: #252525; 
+    background-color: #5a5a5a;
   }
-  
+
+
   .delete-button {
     margin-top: 20px;
     padding: 12px;
     font-size: 1rem;
     color: #fff;
-    background-color: #252525; 
+    background-color: #ff2727; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -120,5 +139,5 @@
   }
   
   .delete-button:hover {
-    background-color: #252525; 
+    background-color: #a01a1a; 
   }

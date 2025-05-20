@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';
 import './Profile.css';
+import { PiNotePencilLight } from "react-icons/pi";
 
 const ProfilePage = () => {
   const { user, updateProfile, deleteAccount, logout } = useContext(AuthContext);
@@ -62,10 +63,12 @@ const ProfilePage = () => {
         <div className="profile-header">
           <div className="profile-photo" />
           <button className="edit-button" onClick={handleEditClick}>
-            ✏️
+          <PiNotePencilLight />
           </button>
         </div>
+        
         <form className="profile-form" onSubmit={handleSave}>
+
           <div className="form-group">
             <label htmlFor="name">Nome</label>
             <input
@@ -76,8 +79,10 @@ const ProfilePage = () => {
               value={formData.name}
               onChange={handleChange}
               disabled={!isEditing}
+              placeholder="Digite seu nome"
             />
           </div>
+
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
@@ -88,7 +93,9 @@ const ProfilePage = () => {
               value={formData.email}
               onChange={handleChange}
               disabled={!isEditing}
+              placeholder="Digite seu email (Exemplo@gmail.com)"
             />
+
           </div>
           <div className="form-group">
             <label htmlFor="password">Senha</label>
@@ -102,6 +109,7 @@ const ProfilePage = () => {
               disabled={!isEditing}
               placeholder="Digite uma nova senha (opcional)"
             />
+
           </div>
           {isEditing && (
             <button type="submit" className="save-button">
