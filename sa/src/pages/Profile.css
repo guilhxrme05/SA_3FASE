@@ -60,7 +60,7 @@
   }
   
 
-  /*tem que adicionar o zóio na senha*/
+  /*tem que adicionar o zóio na senha, e mudar o nome da div do input da senha*/
   .form-group {
     display: flex;
     flex-direction: column;
@@ -140,4 +140,22 @@
   
   .delete-button:hover {
     background-color: #a01a1a; 
+  }
+
+  .password-group {
+    position: relative;
+  }
+  
+  .password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 1.3rem;
   }

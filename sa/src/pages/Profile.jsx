@@ -3,10 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';
 import './Profile.css';
 import { PiNotePencilLight } from "react-icons/pi";
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 
 const ProfilePage = () => {
   const { user, updateProfile, deleteAccount, logout } = useContext(AuthContext);
   const [isEditing, setIsEditing] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: user?.name || '',
     email: user?.email || '',
@@ -14,7 +16,6 @@ const ProfilePage = () => {
   });
   const navigate = useNavigate();
 
- 
   useEffect(() => {
     setFormData({
       name: user?.name || '',
@@ -63,12 +64,11 @@ const ProfilePage = () => {
         <div className="profile-header">
           <div className="profile-photo" />
           <button className="edit-button" onClick={handleEditClick}>
-          <PiNotePencilLight />
+            <PiNotePencilLight />
           </button>
         </div>
-        
-        <form className="profile-form" onSubmit={handleSave}>
 
+        <form className="profile-form" onSubmit={handleSave}>
           <div className="form-group">
             <label htmlFor="name">Nome</label>
             <input
@@ -95,28 +95,37 @@ const ProfilePage = () => {
               disabled={!isEditing}
               placeholder="Digite seu email (Exemplo@gmail.com)"
             />
-
           </div>
-          <div className="form-group">
+
+          <div className="form-group password-group">
             <label htmlFor="password">Senha</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="form-input"
-              value={formData.password}
-              onChange={handleChange}
-              disabled={!isEditing}
-              placeholder="Digite uma nova senha (opcional)"
-            />
-
+            <div className="password-wrapper">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                className="form-input"
+                value={formData.password}
+                onChange={handleChange}
+                disabled={!isEditing}
+                placeholder="Digite uma nova senha (opcional)"
+              />
+              <span
+                className="toggle-password"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ?  <AiOutlineEye /> : <AiOutlineEyeInvisible /> }
+              </span>
+            </div>
           </div>
+
           {isEditing && (
             <button type="submit" className="save-button">
               Salvar
             </button>
           )}
         </form>
+
         <button className="delete-button" onClick={handleDeleteAccount}>
           Deletar Conta
         </button>
