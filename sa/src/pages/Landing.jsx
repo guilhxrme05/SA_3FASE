@@ -7,6 +7,7 @@ const HomePage = () => {
     <div className="homepage-container">
       <header className="header">
         <h1 className="logo">Avalia+</h1>
+        <h1><Link to="/Home">menu</Link></h1>
       </header>
       <main className="main-content">
         <h2 className="title-landing">Avaliações de Plataformas Digital</h2>

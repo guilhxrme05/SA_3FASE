@@ -5,6 +5,7 @@ import PaginaReview from '../pages/PaginaReview';
 import CadastroPlataforma from '../pages/CadastroPlataforma';
 import Landing from '../pages/Landing';
 import Profile from '../pages/Profile';
+import Home from '../pages/Home';
 
 const router = createBrowserRouter([
     { path: "/", element: <Landing /> },
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     { path: "/cadastroplataforma", element: <CadastroPlataforma /> },
     { path: "/login", element: <Login /> },
     { path: "/perfil", element: <Profile /> },
+    { path: "/Home", element: <Home />},
 ]);
 
 export default router;

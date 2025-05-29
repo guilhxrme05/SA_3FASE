@@ -5,6 +5,7 @@
     min-height: 100vh;
     background-color: #1a1a1a;
     color: #fff;
+    background-image: url('/background/backimg4.jpg');
   }
   
   .header {
@@ -60,7 +61,6 @@
   }
   
 
-  /*tem que adicionar o zóio na senha, e mudar o nome da div do input da senha*/
   .form-group {
     display: flex;
     flex-direction: column;

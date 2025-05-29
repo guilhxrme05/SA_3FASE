@@ -1,0 +1,120 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .home-header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 1200px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 15px;
+    background-color: #2a2a2a;
+    color: #fff;
+    outline: none;
+    margin-bottom: 20px;
+  }
+  
+  .search-input:focus {
+    border-color: #007bff;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 30px;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .filter-btn {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    border-radius: 20px;
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #2a2a2a;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-width: 120px;
+  }
+  
+  .filter-btn:hover {
+    background-color: #444;
+  }
+  
+  .filter-btn.selected {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    
+  }
+  
+  .app-card {
+    background-color: #2a2a2a;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .app-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .app-logo {
+    background-color: #fff;
+    height: 80px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .app-name {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    color: #fff;
+  }
+  
+  .app-rating {
+    color: #ffd700;
+    font-size: 1rem;
+  }
+  

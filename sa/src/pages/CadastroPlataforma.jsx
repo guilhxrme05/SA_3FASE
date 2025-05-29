@@ -22,6 +22,7 @@ function CadastroPlataforma() {
 
   };
 
+
   return (
     <div className="cadastro-plataforma">
 
@@ -82,11 +83,12 @@ function CadastroPlataforma() {
               <label>Categoria</label>
               <select name="category" value={formData.category} onChange={handleChange}>
                 <option value="">Selecione uma categoria</option>
-                <option value="Música">Música</option>
-                <option value="Filmes">Filmes</option>
-                <option value="Séries">Séries</option>
+                <option value="Filmes">Streaming</option>
                 <option value="Jogos">Jogos</option>
                 <option value="Educação">Educação</option>
+                <option value="Música">Música</option>
+                <option value="Social">Social</option>
+                <option value="Financeiro">Financeiro</option>
               </select>
             </div>
             <button type="submit" className="submit-button">
