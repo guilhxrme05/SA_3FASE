@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './CadastroPlataforma.css';
+import axios from 'axios';
 
 function CadastroPlataforma() {
   const [formData, setFormData] = useState({
@@ -10,25 +11,64 @@ function CadastroPlataforma() {
     description: '',
     category: '',
   });
+  const [plataformas, setPlataformas] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+
+  useEffect(() => {
+    fetchPlataformas();
+  }, []);
+
+  const fetchPlataformas = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/plataformas');
+      setPlataformas(response.data);
+    } catch (error) {
+      alert('Erro ao carregar plataformas');
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Nova plataforma:', formData);
-
+    try {
+      const response = await axios.post('http://localhost:5000/api/plataformas', formData);
+      setPlataformas([...plataformas, response.data]);
+      setFormData({
+        name: '',
+        logoUrl: '',
+        founded: '',
+        website: '',
+        description: '',
+        category: '',
+      });
+    } catch (error) {
+      alert(error.response?.data?.message || 'Erro ao salvar plataforma');
+    }
   };
 
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredPlataformas = plataformas.filter((plataforma) =>
+    plataforma.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="cadastro-plataforma">
-
-
+      <header>
+        <h1>Gerenciamento de Plataformas</h1>
+        <nav>
+          <a href="/login">Login</a>
+          <a href="/registro">Registro</a>
+        </nav>
+      </header>
       <div className="content-wrapper">
-        <h2>Gerenciamento de plataformas</h2>
         <div className="platform-form">
           <h3>Nova plataforma</h3>
           <form onSubmit={handleSubmit}>
@@ -54,7 +94,7 @@ function CadastroPlataforma() {
             <div className="form-group">
               <label>Data de fundação</label>
               <input
-                type="text"
+                type="date"
                 name="founded"
                 value={formData.founded}
                 onChange={handleChange}
@@ -81,9 +121,9 @@ function CadastroPlataforma() {
             </div>
             <div className="form-group">
               <label>Categoria</label>
-              <select name="category" value={formData.category} onChange={handleChange}>
+              <select name="category" value={formData.category} onChange={handleChange} required>
                 <option value="">Selecione uma categoria</option>
-                <option value="Filmes">Streaming</option>
+                <option value="Streaming">Streaming</option>
                 <option value="Jogos">Jogos</option>
                 <option value="Educação">Educação</option>
                 <option value="Música">Música</option>
@@ -97,7 +137,33 @@ function CadastroPlataforma() {
           </form>
         </div>
 
-        <h2>Plataformas existentes</h2>
+        <div className="plataformas-list">
+          <h2>Plataformas existentes</h2>
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Busque plataformas"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+          <ul>
+            {filteredPlataformas.length === 0 ? (
+              <p>Nenhuma plataforma cadastrada.</p>
+            ) : (
+              filteredPlataformas.map((plataforma) => (
+                <li key={plataforma.id_plataforma}>
+                  <div
+                    className="platform-logo"
+                    style={{ backgroundImage: `url(${plataforma.logo_url})` }}
+                  ></div>
+                  <div className="platform-name">{plataforma.nome}</div>
+                  <div className="platform-category">{plataforma.categoria}</div>
+                  <div className="platform-description">{plataforma.descricao}</div>
+                </li>
+              ))
+            )}
+          </ul>
+        </div>
       </div>
     </div>
   );
