@@ -41,15 +41,29 @@ function Home() {
       </div>
 
       {/* cards */}
-      <div className="cards-grid">
+        {/* <div className="cards-grid">
         {Array.from({ length: 16 }).map((_, index) => (
           <div key={index} className="app-card">
             <div className="app-logo" />
             <div className="app-name">App/site</div>
             <div className="app-rating">★</div>
-          </div>
+          </div> 
         ))}
-      </div>
+      </div>  */}
+       
+
+
+<div className='cards-grid'>
+{Array.from({ length: 15 }).map((_, index) => (
+  <div class="card">
+  <div class="card2">
+  </div>
+</div> 
+))}
+  
+</div>
+
+
     </div>
   );
 }
