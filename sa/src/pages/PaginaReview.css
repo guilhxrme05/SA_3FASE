@@ -1,88 +1,96 @@
 .pagina-review-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #1a1a1a;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .pagina-review {
-    width: 100%;
-    max-width: 900px;
-    background-color: #1a1a1a;
-    color: #fff;
-    border-radius: 10px;
-    padding: 30px;
-    box-sizing: border-box;
-    margin-top: -50px; /* Move the content slightly upwards */
-  }
-  
-  .header-section {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 30px;
-  }
-  
-  .logo-placeholder {
-    width: 200px; /* Increased size */
-    height: 200px;
-    background-color: #ccc;
-    margin-right: 30px; /* Increased space between logo and text */
-  }
-  
-  .info-right {
-    flex: 1;
-  }
-  
-  .info-right h1 {
-    font-size: 48px; /* Increased font size */
-    margin-bottom: 20px;
-  }
-  
-  .info-right .description {
-    font-size: 24px; /* Increased font size */
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  
-  .info-right .rating,
-  .info-right .reviews {
-    font-size: 20px; /* Increased font size */
-    margin: 5px 0;
-  }
-  
-  .info-right strong {
-    color: #ccc;
-  }
-  
-  .info-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Increased space between cards */
-  }
-  
-  .info-card {
-    background-color: #222;
-    padding: 20px; /* Increased padding */
-    border-radius: 5px;
-  }
-  
-  .info-card p {
-    margin: 0;
-    font-size: 20px; /* Increased font size */
-  }
-  
-  .info-card strong {
-    color: #ccc;
-  }
-  
-  .info-card a {
-    color: #1e90ff;
-    text-decoration: none;
-  }
-  
-  .info-card a:hover {
-    text-decoration: underline;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.pagina-review {
+  width: 100%;
+  max-width: 900px;
+  background-color: #2a2a2a; /* Ajustado para consistência com cards */
+  color: #fff;
+  border-radius: 15px; /* Aumentado para bordas mais suaves */
+  padding: 30px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adicionado sombra */
+  margin-top: -50px; /* Mantido para ajuste de posição */
+}
+
+.header-section {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.logo-placeholder {
+  width: 100px; /* Reduzido para consistência com cards */
+  height: 100px; /* Reduzido para consistência com cards */
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%; /* Alterado para circular */
+  border: 2px solid #fff; /* Adicionado borda branca */
+  margin-right: 20px; /* Ajustado espaçamento */
+  background-color: transparent; /* Removido fundo cinza */
+}
+
+.info-right {
+  flex: 1;
+}
+
+.info-right h1 {
+  font-size: 2rem; /* Reduzido para legibilidade */
+  margin-bottom: 10px;
+}
+
+.info-right .description {
+  font-size: 1rem; /* Reduzido para consistência */
+  line-height: 1.5;
+  color: #ccc; /* Ajustado para cor mais clara */
+  margin-bottom: 15px;
+}
+
+.info-right .rating,
+.info-right .reviews {
+  font-size: 0.9rem; /* Reduzido para consistência */
+  margin: 5px 0;
+  color: #bbb; /* Ajustado para cor mais clara */
+}
+
+.info-right strong {
+  color: #ccc; /* Mantido para consistência */
+}
+
+.info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Ajustado espaçamento */
+}
+
+.info-card {
+  background-color: #333; /* Ajustado para fundo mais escuro */
+  padding: 15px; /* Reduzido para equilíbrio */
+  border-radius: 10px; /* Aumentado para bordas mais suaves */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adicionado sombra leve */
+}
+
+.info-card p {
+  margin: 0;
+  font-size: 0.95rem; /* Reduzido para consistência */
+}
+
+.info-card strong {
+  color: #ccc; /* Mantido para consistência */
+}
+
+.info-card a {
+  color: #1e90ff; /* Mantido para links */
+  text-decoration: none;
+}
+
+.info-card a:hover {
+  text-decoration: underline;
+}
