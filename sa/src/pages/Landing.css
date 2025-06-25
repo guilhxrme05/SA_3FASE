@@ -260,20 +260,20 @@ transition-duration: .3s;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
 }
 
-.spotify {
+.whatsapp {
   background-color: green;
 }
 
-.netflix {
+.email {
   background-color: rgb(238, 37, 23);
 }
 
-.hbo {
+.github {
   background-color: rgb(27, 36, 47);
 }
 
-.aliexpress{
-  background-color: rgb(130, 11, 210);
+.contato{
+  background-color: rgb(13, 0, 196);
 }
 
 .Btn:hover {
@@ -308,4 +308,3 @@ transition-duration: .3s;
 .svgIcon path {
   fill: white;
 }
-

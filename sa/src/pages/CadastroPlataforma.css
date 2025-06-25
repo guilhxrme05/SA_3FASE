@@ -183,3 +183,46 @@ header nav a:hover {
   color: #ccc;
   line-height: 1.4;
 }
+
+
+
+/* From Uiverse.io by ForzDz */ 
+.rating {
+  display: inline-block;
+  direction: rtl; /* Inverte o sentido de leitura dos elementos */
+  text-align: left; /* Alinha visualmente à esquerda */
+}
+
+
+.rating input {
+  display: none;
+  
+}
+
+.rating label {
+  
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.rating label:before {
+  content: '\2605';
+  font-size: 30px;
+  transition: color 0.1s;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+  color: gold;
+  transform: scale(1.2);
+  transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+  animation: bounce 0.5s ease-in-out alternate;
+}
+
+@keyframes bounce {
+  to {
+    transform: scale(1.3);
+  }
+}

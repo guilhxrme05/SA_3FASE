@@ -123,3 +123,17 @@
 }
 
 /* Removido .app-rating, pois não será usado por enquanto */
+
+/* ⭐ Estilo para as estrelas de avaliação */
+.star-rating {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.star-rating span {
+  font-size: 20px;
+  color: #ccc;
+  margin: 0 2px;
+  transition: color 0.3s;
+}

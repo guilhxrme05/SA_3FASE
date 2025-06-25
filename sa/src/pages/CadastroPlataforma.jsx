@@ -10,10 +10,10 @@ function CadastroPlataforma() {
     website: '',
     description: '',
     category: '',
+    rating: 0, // nota da plataforma
   });
   const [plataformas, setPlataformas] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-
 
   useEffect(() => {
     fetchPlataformas();
@@ -33,6 +33,13 @@ function CadastroPlataforma() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleRatingChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      rating: Number(e.target.value),
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -45,6 +52,7 @@ function CadastroPlataforma() {
         website: '',
         description: '',
         category: '',
+        rating: 0,
       });
     } catch (error) {
       alert(error.response?.data?.message || 'Erro ao salvar plataforma');
@@ -109,6 +117,63 @@ function CadastroPlataforma() {
                 placeholder="Website"
               />
             </div>
+
+
+            <label>Nota</label>
+            <div className="rating">
+              <input
+                type="radio"
+                id="star1"
+                name="rating"
+                value="1"
+                checked={formData.rating === 1}
+                onChange={handleRatingChange}
+              />
+              <label htmlFor="star1"></label>
+
+              <input
+                type="radio"
+                id="star2"
+                name="rating"
+                value="2"
+                checked={formData.rating === 2}
+                onChange={handleRatingChange}
+              />
+              <label htmlFor="star2"></label>
+
+              <input
+                type="radio"
+                id="star3"
+                name="rating"
+                value="3"
+                checked={formData.rating === 3}
+                onChange={handleRatingChange}
+              />
+              <label htmlFor="star3"></label>
+
+              <input
+                type="radio"
+                id="star4"
+                name="rating"
+                value="4"
+                checked={formData.rating === 4}
+                onChange={handleRatingChange}
+              />
+              <label htmlFor="star4"></label>
+
+              <input
+                type="radio"
+                id="star5"
+                name="rating"
+                value="5"
+                checked={formData.rating === 5}
+                onChange={handleRatingChange}
+              />
+              <label htmlFor="star5"></label>
+            </div>
+
+
+
             <div className="form-group">
               <label>Descrição</label>
               <textarea
@@ -121,7 +186,12 @@ function CadastroPlataforma() {
             </div>
             <div className="form-group">
               <label>Categoria</label>
-              <select name="category" value={formData.category} onChange={handleChange} required>
+              <select
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                required
+              >
                 <option value="">Selecione uma categoria</option>
                 <option value="Streaming">Streaming</option>
                 <option value="Jogos">Jogos</option>

@@ -4,11 +4,29 @@ import './Home.css';
 import axios from 'axios';
 import { BsCameraReelsFill } from "react-icons/bs";
 import { LuJoystick } from "react-icons/lu";
-import { FaGraduationCap } from "react-icons/fa";
-import { FaMusic } from "react-icons/fa";
+import { FaGraduationCap, FaMusic } from "react-icons/fa";
 import { IoIosChatboxes } from "react-icons/io";
 import { MdAttachMoney } from "react-icons/md";
-import { CiSearch } from "react-icons/ci";
+
+// ⭐ Componente para exibir estrelas de avaliação
+function StarRating({ rating }) {
+  return (
+    <div className="star-rating">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <span
+          key={star}
+          style={{
+            color: star <= rating ? '#ffc300' : '#ccc',
+            fontSize: '20px',
+            marginRight: 2,
+          }}
+        >
+          ★
+        </span>
+      ))}
+    </div>
+  );
+}
 
 function Home() {
   const [plataformas, setPlataformas] = useState([]);
@@ -121,6 +139,10 @@ function Home() {
                 style={{ backgroundImage: `url(${plataforma.logo_url})` }}
               ></div>
               <div className="app-name">{plataforma.nome}</div>
+
+              {/* ⭐ Mostra as estrelas */}
+              <StarRating rating={plataforma.rating || 0} />
+
               <div className="app-description">{plataforma.descricao}</div>
             </Link>
           ))
