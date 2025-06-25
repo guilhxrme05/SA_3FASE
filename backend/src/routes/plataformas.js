@@ -6,17 +6,21 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   const { name, logoUrl, founded, website, description, category } = req.body;
   try {
-    // Mapear o nome da categoria para o id_categoria
-    const categoria = await pool.query('SELECT id_categoria FROM Categorias WHERE nome = $1', [category]);
+    const categoria = await pool.query(
+      'SELECT id_categoria FROM Categorias WHERE nome = $1',
+      [category]
+    );
     if (categoria.rows.length === 0) {
       return res.status(400).json({ message: 'Categoria não encontrada' });
     }
     const id_categoria = categoria.rows[0].id_categoria;
 
     const newPlataforma = await pool.query(
-      'INSERT INTO Plataformas (nome, logo_url, data_fundacao, website, descricao, id_categoria) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
+      `INSERT INTO Plataformas (nome, logo_url, data_fundacao, website, descricao, id_categoria)
+       VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
       [name, logoUrl, founded, website, description, id_categoria]
     );
+
     res.status(201).json(newPlataforma.rows[0]);
   } catch (error) {
     console.error(error);
@@ -24,12 +28,19 @@ router.post('/', async (req, res) => {
   }
 });
 
-// READ: Listar todas as plataformas
+// READ: Listar todas as plataformas com média de avaliação ⭐
 router.get('/', async (req, res) => {
   try {
-    const plataformas = await pool.query(
-      'SELECT p.*, c.nome AS categoria FROM Plataformas p LEFT JOIN Categorias c ON p.id_categoria = c.id_categoria'
-    );
+    const plataformas = await pool.query(`
+      SELECT 
+        p.*, 
+        c.nome AS categoria,
+        ROUND(AVG(a.nota), 1) AS media_avaliacao
+      FROM Plataformas p
+      LEFT JOIN Categorias c ON p.id_categoria = c.id_categoria
+      LEFT JOIN Avaliacoes a ON a.id_plataforma = p.id_plataforma
+      GROUP BY p.id_plataforma, c.nome
+    `);
     res.json(plataformas.rows);
   } catch (error) {
     console.error(error);
@@ -41,13 +52,22 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const plataforma = await pool.query(
-      'SELECT p.*, c.nome AS categoria FROM Plataformas p LEFT JOIN Categorias c ON p.id_categoria = c.id_categoria WHERE p.id_plataforma = $1',
-      [id]
-    );
+    const plataforma = await pool.query(`
+      SELECT 
+        p.*, 
+        c.nome AS categoria,
+        ROUND(AVG(a.nota), 1) AS media_avaliacao
+      FROM Plataformas p
+      LEFT JOIN Categorias c ON p.id_categoria = c.id_categoria
+      LEFT JOIN Avaliacoes a ON a.id_plataforma = p.id_plataforma
+      WHERE p.id_plataforma = $1
+      GROUP BY p.id_plataforma, c.nome
+    `, [id]);
+
     if (plataforma.rows.length === 0) {
       return res.status(404).json({ message: 'Plataforma não encontrada' });
     }
+
     res.json(plataforma.rows[0]);
   } catch (error) {
     console.error(error);
@@ -55,24 +75,30 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// UPDATE: Atualizar uma plataforma
+// UPDATE
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { name, logoUrl, founded, website, description, category } = req.body;
   try {
-    const categoria = await pool.query('SELECT id_categoria FROM Categorias WHERE nome = $1', [category]);
+    const categoria = await pool.query(
+      'SELECT id_categoria FROM Categorias WHERE nome = $1',
+      [category]
+    );
     if (categoria.rows.length === 0) {
       return res.status(400).json({ message: 'Categoria não encontrada' });
     }
     const id_categoria = categoria.rows[0].id_categoria;
 
     const updatedPlataforma = await pool.query(
-      'UPDATE Plataformas SET nome = $1, logo_url = $2, data_fundacao = $3, website = $4, descricao = $5, id_categoria = $6 WHERE id_plataforma = $7 RETURNING *',
+      `UPDATE Plataformas SET nome = $1, logo_url = $2, data_fundacao = $3, website = $4,
+       descricao = $5, id_categoria = $6 WHERE id_plataforma = $7 RETURNING *`,
       [name, logoUrl, founded, website, description, id_categoria, id]
     );
+
     if (updatedPlataforma.rows.length === 0) {
       return res.status(404).json({ message: 'Plataforma não encontrada' });
     }
+
     res.json(updatedPlataforma.rows[0]);
   } catch (error) {
     console.error(error);
@@ -80,7 +106,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE: Excluir uma plataforma
+// DELETE
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   try {
