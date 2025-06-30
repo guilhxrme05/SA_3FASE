@@ -94,3 +94,40 @@
 .info-card a:hover {
   text-decoration: underline;
 }
+
+.rating-stars {
+  direction: rtl; /* inverte a ordem visual dos labels */
+  unicode-bidi: bidi-override; /* garante que a direção afete o layout */
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+}
+
+.rating-stars input {
+  display: none; /* esconde os inputs */
+}
+
+.rating-stars label {
+  font-size: 32px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+/* Estrela marcada ou anterior */
+.rating-stars input:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+  color: #FFD700;
+}
+
+textarea.search-input {
+  resize: none; /* remove o redimensionamento */
+  outline: none; /* remove o contorno azul ao focar */
+  border: 1px solid #646464; /* borda padrão */
+}
+
+textarea.search-input:focus {
+  border-color: #ccc; /* mantém a mesma cor da borda ao focar */
+  box-shadow: none;   /* remove sombra azul */
+}

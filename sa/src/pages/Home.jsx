@@ -8,10 +8,10 @@ import { FaGraduationCap, FaMusic } from "react-icons/fa";
 import { IoIosChatboxes } from "react-icons/io";
 import { MdAttachMoney } from "react-icons/md";
 
-// ⭐ Componente para exibir estrelas de avaliação
+// Componente de estrelas
 function StarRating({ rating }) {
   return (
-    <div className="star-rating">
+    <div className="star-rating" style={{ display: 'flex', alignItems: 'center' }}>
       {[1, 2, 3, 4, 5].map((star) => (
         <span
           key={star}
@@ -24,6 +24,9 @@ function StarRating({ rating }) {
           ★
         </span>
       ))}
+      <span style={{ fontSize: '14px', marginLeft: '6px', color: '#ccc' }}>
+        ({rating?.toFixed(2) || '0.00'})
+      </span>
     </div>
   );
 }
@@ -40,7 +43,27 @@ function Home() {
   const fetchPlataformas = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/plataformas');
-      setPlataformas(response.data);
+      const plataformasData = response.data;
+
+      const plataformasComMedia = await Promise.all(
+        plataformasData.map(async (plataforma) => {
+          try {
+            const mediaRes = await axios.get(`http://localhost:5000/api/avaliacoes/media/${plataforma.id_plataforma}`);
+            return {
+              ...plataforma,
+              rating: mediaRes.data.media_estrelas || 0,
+            };
+          } catch (err) {
+            console.error(`Erro ao buscar média da plataforma ${plataforma.nome}:`, err);
+            return {
+              ...plataforma,
+              rating: 0,
+            };
+          }
+        })
+      );
+
+      setPlataformas(plataformasComMedia);
     } catch (error) {
       console.error('Erro ao carregar plataformas:', error);
     }
@@ -79,48 +102,14 @@ function Home() {
       />
 
       <div className="filter-buttons">
-        <button
-          className={`filter-btn ${filter === 'Todos' ? 'selected' : ''}`}
-          onClick={() => handleFilterChange('Todos')}
-        >
-          Todos
-        </button>
-        <button
-          className={`filter-btn ${filter === 'Streaming' ? 'selected' : ''}`}
-          onClick={() => handleFilterChange('Streaming')}
-        >
-          <BsCameraReelsFill /> Streaming
-        </button>
-        <button
-          className={`filter-btn ${filter === 'Jogos' ? 'selected' : ''}`}
-          onClick={() => handleFilterChange('Jogos')}
-        >
-          <LuJoystick /> Jogos
-        </button>
-        <button
-          className={`filter-btn ${filter === 'Educação' ? 'selected' : ''}`}
-          onClick={() => handleFilterChange('Educação')}
-        >
-          <FaGraduationCap /> Educação
-        </button>
-        <button
-          className={`filter-btn ${filter === 'Música' ? 'selected' : ''}`}
-          onClick={() => handleFilterChange('Música')}
-        >
-          <FaMusic /> Música
-        </button>
-        <button
-          className={`filter-btn ${filter === 'Social' ? 'selected' : ''}`}
-          onClick={() => handleFilterChange('Social')}
-        >
-          <IoIosChatboxes /> Social
-        </button>
-        <button
-          className={`filter-btn ${filter === 'Financeiro' ? 'selected' : ''}`}
-          onClick={() => handleFilterChange('Financeiro')}
-        >
-          <MdAttachMoney /> Financeiro
-        </button>
+        <button className={`filter-btn ${filter === 'Todos' ? 'selected' : ''}`} onClick={() => handleFilterChange('Todos')}>Todos</button>
+        <button className={`filter-btn ${filter === 'Streaming' ? 'selected' : ''}`} onClick={() => handleFilterChange('Streaming')}><BsCameraReelsFill /> Streaming</button>
+        <button className={`filter-btn ${filter === 'Jogos' ? 'selected' : ''}`} onClick={() => handleFilterChange('Jogos')}><LuJoystick /> Jogos</button>
+        <button className={`filter-btn ${filter === 'Educação' ? 'selected' : ''}`} onClick={() => handleFilterChange('Educação')}><FaGraduationCap /> Educação</button>
+        <button className={`filter-btn ${filter === 'Música' ? 'selected' : ''}`} onClick={() => handleFilterChange('Música')}><FaMusic /> Música</button>
+        <button className={`filter-btn ${filter === 'Social' ? 'selected' : ''}`} onClick={() => handleFilterChange('Social')}><IoIosChatboxes /> Social</button>
+        <button className={`filter-btn ${filter === 'Financeiro' ? 'selected' : ''}`} onClick={() => handleFilterChange('Financeiro')}><MdAttachMoney /> Financeiro</button>
+
       </div>
 
       <div className="cards-grid">
@@ -140,7 +129,6 @@ function Home() {
               ></div>
               <div className="app-name">{plataforma.nome}</div>
 
-              {/* ⭐ Mostra as estrelas */}
               <StarRating rating={plataforma.rating || 0} />
 
               <div className="app-description">{plataforma.descricao}</div>

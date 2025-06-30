@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const pool = require('../config/db');
 const router = express.Router();
 
-
+// Middleware para verificar token
 const verifyToken = (req, res, next) => {
   const token = req.headers['authorization']?.split(' ')[1];
   if (!token) {
@@ -20,7 +20,7 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-// registro
+// REGISTRO
 router.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -46,7 +46,11 @@ router.post('/register', async (req, res) => {
 
     res.status(201).json({
       token,
-      user: { id: newUser.rows[0].id_usuario, name: newUser.rows[0].nome, email: newUser.rows[0].email },
+      user: {
+        id_usuario: newUser.rows[0].id_usuario,
+        nome: newUser.rows[0].nome,
+        email: newUser.rows[0].email
+      },
     });
   } catch (error) {
     console.error(error);
@@ -54,7 +58,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// login
+// LOGIN
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -77,7 +81,11 @@ router.post('/login', async (req, res) => {
 
     res.json({
       token,
-      user: { id: user.rows[0].id_usuario, name: user.rows[0].nome, email: user.rows[0].email },
+      user: {
+        id_usuario: user.rows[0].id_usuario,
+        nome: user.rows[0].nome,
+        email: user.rows[0].email
+      },
     });
   } catch (error) {
     console.error(error);
@@ -85,13 +93,12 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// edita perfil
+// ATUALIZAR PERFIL
 router.put('/profile', verifyToken, async (req, res) => {
   const { name, email, password } = req.body;
   const userId = req.user.id;
 
   try {
-    // verifica se o email já está em uso por outro usuário
     if (email) {
       const emailExists = await pool.query(
         'SELECT * FROM Usuarios WHERE email = $1 AND id_usuario != $2',
@@ -102,7 +109,6 @@ router.put('/profile', verifyToken, async (req, res) => {
       }
     }
 
-    // monta a query de atualização dinamicamente
     let query = 'UPDATE Usuarios SET ';
     let values = [];
     let index = 1;
@@ -125,18 +131,15 @@ router.put('/profile', verifyToken, async (req, res) => {
       index++;
     }
 
-    // remove a última vírgula e adiciona a condição WHERE
     query = query.slice(0, -2) + ` WHERE id_usuario = $${index} RETURNING id_usuario, nome, email`;
     values.push(userId);
 
-    // executa a atualização
     const updatedUser = await pool.query(query, values);
 
     if (updatedUser.rows.length === 0) {
       return res.status(404).json({ message: 'Usuário não encontrado' });
     }
 
-    // gera um novo token com os dados atualizados
     const token = jwt.sign(
       { id: updatedUser.rows[0].id_usuario, email: updatedUser.rows[0].email },
       process.env.JWT_SECRET,
@@ -146,8 +149,8 @@ router.put('/profile', verifyToken, async (req, res) => {
     res.json({
       token,
       user: {
-        id: updatedUser.rows[0].id_usuario,
-        name: updatedUser.rows[0].nome,
+        id_usuario: updatedUser.rows[0].id_usuario,
+        nome: updatedUser.rows[0].nome,
         email: updatedUser.rows[0].email,
       },
     });
@@ -157,7 +160,7 @@ router.put('/profile', verifyToken, async (req, res) => {
   }
 });
 
-// deletar conta
+// DELETAR CONTA
 router.delete('/profile', verifyToken, async (req, res) => {
   const userId = req.user.id;
 

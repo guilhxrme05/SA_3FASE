@@ -6,8 +6,11 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   const { name, logoUrl, founded, website, description, category } = req.body;
   try {
+    if (!name || !category) {
+      return res.status(400).json({ message: 'Nome e categoria são obrigatórios' });
+    }
     const categoria = await pool.query(
-      'SELECT id_categoria FROM Categorias WHERE nome = $1',
+      'SELECT id_categoria FROM Categorias WHERE LOWER(nome) = LOWER($1)',
       [category]
     );
     if (categoria.rows.length === 0) {
@@ -18,33 +21,28 @@ router.post('/', async (req, res) => {
     const newPlataforma = await pool.query(
       `INSERT INTO Plataformas (nome, logo_url, data_fundacao, website, descricao, id_categoria)
        VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
-      [name, logoUrl, founded, website, description, id_categoria]
+      [name, logoUrl || null, founded || null, website || null, description || null, id_categoria]
     );
 
     res.status(201).json(newPlataforma.rows[0]);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erro ao criar plataforma' });
+    console.error('Erro ao criar plataforma:', error);
+    res.status(500).json({ message: 'Erro ao criar plataforma', error: error.message });
   }
 });
 
-// READ: Listar todas as plataformas com média de avaliação ⭐
+// READ: Listar todas as plataformas
 router.get('/', async (req, res) => {
   try {
     const plataformas = await pool.query(`
-      SELECT 
-        p.*, 
-        c.nome AS categoria,
-        ROUND(AVG(a.nota), 1) AS media_avaliacao
+      SELECT p.*, c.nome AS categoria
       FROM Plataformas p
       LEFT JOIN Categorias c ON p.id_categoria = c.id_categoria
-      LEFT JOIN Avaliacoes a ON a.id_plataforma = p.id_plataforma
-      GROUP BY p.id_plataforma, c.nome
     `);
     res.json(plataformas.rows);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erro ao listar plataformas' });
+    console.error('Erro ao listar plataformas:', error);
+    res.status(500).json({ message: 'Erro ao listar plataformas', error: error.message });
   }
 });
 
@@ -53,15 +51,10 @@ router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
     const plataforma = await pool.query(`
-      SELECT 
-        p.*, 
-        c.nome AS categoria,
-        ROUND(AVG(a.nota), 1) AS media_avaliacao
+      SELECT p.*, c.nome AS categoria
       FROM Plataformas p
       LEFT JOIN Categorias c ON p.id_categoria = c.id_categoria
-      LEFT JOIN Avaliacoes a ON a.id_plataforma = p.id_plataforma
       WHERE p.id_plataforma = $1
-      GROUP BY p.id_plataforma, c.nome
     `, [id]);
 
     if (plataforma.rows.length === 0) {
@@ -70,8 +63,8 @@ router.get('/:id', async (req, res) => {
 
     res.json(plataforma.rows[0]);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erro ao buscar plataforma' });
+    console.error('Erro ao buscar plataforma:', error);
+    res.status(500).json({ message: 'Erro ao buscar plataforma', error: error.message });
   }
 });
 
@@ -80,8 +73,11 @@ router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { name, logoUrl, founded, website, description, category } = req.body;
   try {
+    if (!name || !category) {
+      return res.status(400).json({ message: 'Nome e categoria são obrigatórios' });
+    }
     const categoria = await pool.query(
-      'SELECT id_categoria FROM Categorias WHERE nome = $1',
+      'SELECT id_categoria FROM Categorias WHERE LOWER(nome) = LOWER($1)',
       [category]
     );
     if (categoria.rows.length === 0) {
@@ -92,7 +88,7 @@ router.put('/:id', async (req, res) => {
     const updatedPlataforma = await pool.query(
       `UPDATE Plataformas SET nome = $1, logo_url = $2, data_fundacao = $3, website = $4,
        descricao = $5, id_categoria = $6 WHERE id_plataforma = $7 RETURNING *`,
-      [name, logoUrl, founded, website, description, id_categoria, id]
+      [name, logoUrl || null, founded || null, website || null, description || null, id_categoria, id]
     );
 
     if (updatedPlataforma.rows.length === 0) {
@@ -101,8 +97,8 @@ router.put('/:id', async (req, res) => {
 
     res.json(updatedPlataforma.rows[0]);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erro ao atualizar plataforma' });
+    console.error('Erro ao atualizar plataforma:', error);
+    res.status(500).json({ message: 'Erro ao atualizar plataforma', error: error.message });
   }
 });
 
@@ -119,8 +115,8 @@ router.delete('/:id', async (req, res) => {
     }
     res.json({ message: 'Plataforma excluída com sucesso' });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erro ao excluir plataforma' });
+    console.error('Erro ao excluir plataforma:', error);
+    res.status(500).json({ message: 'Erro ao excluir plataforma', error: error.message });
   }
 });
 

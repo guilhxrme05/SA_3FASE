@@ -159,3 +159,91 @@
     color: #ccc;
     font-size: 1.3rem;
   }
+
+  .logout-button {
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #ffffff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    color: black;
+  }
+  
+  .logout-button:hover {
+    background-color: #e0e0e0;
+  }
+
+  .rating-stars-edit {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5px;
+    margin-left: 10px;
+  }
+  
+  .rating-stars-edit input {
+    display: none;
+  }
+  
+  .rating-stars-edit label {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .rating-stars-edit input:checked ~ label {
+    color: #FFD700;
+  }
+  
+  .rating-stars-edit label:hover,
+  .rating-stars-edit label:hover ~ label {
+    color: #FFD700;
+  }
+  /* Profile.css */
+
+/* Container dos botões no canto superior direito */
+.profile-content ul li div[style*="position: absolute"] {
+  display: flex;
+  gap: 8px;
+}
+
+/* Botões editar e excluir */
+.profile-content ul li button {
+  background-color: #007bff; /* Azul padrão */
+  border: none;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+/* Botão excluir com cor diferente */
+.profile-content ul li button:last-child {
+  background-color: #dc3545; /* Vermelho para excluir */
+}
+
+/* Hover */
+.profile-content ul li button:hover {
+  filter: brightness(0.9);
+}
+
+/* Focus */
+.profile-content ul li button:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+.profile-photo {
+  width: 120px;      /* ou o tamanho que preferir */
+  height: 120px;     /* tamanho igual para largura e altura */
+  object-fit: cover; /* mantém a proporção e corta o excesso */
+  border-radius: 50%; /* deixa circular */
+  display: block;
+}
