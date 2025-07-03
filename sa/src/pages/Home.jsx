@@ -8,7 +8,7 @@ import { FaGraduationCap, FaMusic } from "react-icons/fa";
 import { IoIosChatboxes } from "react-icons/io";
 import { MdAttachMoney } from "react-icons/md";
 
-// Componente de estrelas
+
 function StarRating({ rating }) {
   return (
     <div className="star-rating" style={{ display: 'flex', alignItems: 'center' }}>
